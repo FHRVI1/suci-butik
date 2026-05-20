@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suci Butik</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#fffaf8;
+      color:#333;
+    }
+
+    header{
+      width:100%;
+      height:100vh;
+      background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1400&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      flex-direction:column;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 8%;
+      background:rgba(255,255,255,0.1);
+      backdrop-filter:blur(10px);
+      position:fixed;
+      width:100%;
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:700;
+      color:#fff;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:#fff;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#f8d7da;
+    }
+
+    .hero{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-text h1{
+      font-size:70px;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      font-size:20px;
+      max-width:700px;
+      margin:auto;
+      line-height:1.7;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 35px;
+      background:#f8c8dc;
+      color:#333;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#fff;
+      transform:translateY(-3px);
+    }
+
+    section{
+      padding:90px 8%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .title h2{
+      font-size:42px;
+      color:#d46a92;
+      margin-bottom:15px;
+    }
+
+    .title p{
+      color:#777;
+      font-size:16px;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .about-text h3{
+      font-size:34px;
+      margin-bottom:20px;
+      color:#444;
+    }
+
+    .about-text p{
+      line-height:1.9;
+      color:#666;
+      margin-bottom:15px;
+    }
+
+    .services{
+      background:#fff0f5;
+    }
+
+    .service-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      padding:35px;
+      border-radius:20px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#d46a92;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#666;
+      line-height:1.8;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .product-card{
+      background:#fff;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 8px 25px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .product-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .product-card img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+    }
+
+    .product-content{
+      padding:25px;
+    }
+
+    .product-content h3{
+      color:#d46a92;
+      margin-bottom:10px;
+    }
+
+    .product-content p{
+      color:#666;
+      line-height:1.7;
+      margin-bottom:15px;
+    }
+
+    .price{
+      font-size:22px;
+      font-weight:700;
+      color:#333;
+    }
+
+    .contact{
+      background:linear-gradient(to right,#f8c8dc,#ffe4ec);
+      text-align:center;
+      border-radius:25px;
+      color:#333;
+    }
+
+    .contact h2{
+      font-size:42px;
+      margin-bottom:20px;
+    }
+
+    .contact p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    footer{
+      background:#222;
+      color:#fff;
+      text-align:center;
+      padding:25px;
+      margin-top:60px;
+    }
+
+    @media(max-width:768px){
+      .hero-text h1{
+        font-size:45px;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Suci Butik</div>
+
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Produk</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Suci Butik</h1>
+        <p>
+          Boutique fashion aesthetic dengan layanan jahit profesional,
+          make baju custom, outfit modern wanita, dan fashion stylish
+          dengan kualitas premium serta desain elegan.
+        </p>
+
+        <a href="https://wa.me/6283180437552?text=halo%20saya%20tertarik%20dengan%20butik%20kamu" class="btn">Pesan Sekarang</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="title">
+      <h2>Tentang Kami</h2>
+      <p>Fashion butik modern dengan desain aesthetic dan elegan</p>
+    </div>
+
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop" alt="fashion butik">
+
+      <div class="about-text">
+        <h3>Butik Fashion Wanita Modern</h3>
+
+        <p>
+          Suci Butik menghadirkan berbagai layanan fashion wanita mulai dari
+          mayet jahit profesional, pembuatan baju custom, dress premium,
+          outfit casual aesthetic, hingga fashion modern dengan kualitas terbaik.
+        </p>
+
+        <p>
+          Kami fokus pada detail jahitan rapi, bahan berkualitas,
+          desain elegan, dan kenyamanan pelanggan untuk berbagai kebutuhan fashion.
+        </p>
+
+        <a href="#products" class="btn">Lihat Produk</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="title">
+      <h2>Layanan Kami</h2>
+      <p>Pelayanan butik lengkap dan profesional</p>
+    </div>
+
+    <div class="service-box">
+      <div class="card">
+        <h3>Mayet Jahit</h3>
+        <p>
+          Layanan jahit profesional untuk berbagai model pakaian wanita
+          dengan hasil jahitan rapi, modern, dan elegan.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Make Baju Custom</h3>
+        <p>
+          Pembuatan baju custom sesuai desain dan ukuran pelanggan.
+          Cocok untuk acara formal, pesta, maupun outfit harian.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Fashion Collection</h3>
+        <p>
+          Koleksi fashion aesthetic terbaru dengan desain trendy,
+          feminin, classy, dan nyaman digunakan sehari-hari.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="title">
+      <h2>Produk Fashion</h2>
+      <p>Koleksi outfit terbaru Suci Butik</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop" alt="dress wanita">
+
+        <div class="product-content">
+          <h3>Elegant Dress</h3>
+
+          <p>
+            Dress premium dengan desain modern dan bahan lembut.
+            Cocok untuk acara formal, pesta, dan outfit classy.
+          </p>
+
+          <div class="price">Rp250.000</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop" alt="fashion wanita">
+
+        <div class="product-content">
+          <h3>Fashion Aesthetic</h3>
+
+          <p>
+            Outfit fashion wanita aesthetic dengan model kekinian,
+            stylish, dan nyaman digunakan sehari-hari.
+          </p>
+
+          <div class="price">Rp180.000</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1200&auto=format&fit=crop" alt="make baju">
+
+        <div class="product-content">
+          <h3>Custom Make Baju</h3>
+
+          <p>
+            Layanan pembuatan baju custom sesuai keinginan pelanggan
+            dengan desain eksklusif dan jahitan berkualitas.
+          </p>
+
+          <div class="price">Mulai Rp300.000</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Hubungi Suci Butik</h2>
+
+      <p>
+        Siap melayani pemesanan fashion wanita, jahit custom,
+        dan berbagai kebutuhan outfit aesthetic terbaik untuk Anda.
+      </p>
+
+      <a href="https://wa.me/6283180437552?text=halo%20saya%20tertarik%20dengan%20butik%20kamu" class="btn">Chat WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Suci Butik — Fashion & Custom Design</p>
+  </footer>
+
+</body>
+</html>
